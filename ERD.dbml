@@ -1,0 +1,28 @@
+Table styles {
+    id int [pk, increment]
+    style varchar
+    price decimal
+}
+
+Table sizes {
+    id int [pk, increment]
+    carets decimal
+    price decimal
+}
+
+Table metals {
+    id int [pk, increment]
+    metal varchar
+    price decimal
+}
+
+Table orders {
+    id int [pk, increment]
+    style_id int [ref: > styles.id]
+    size_id int [ref: > sizes.id]
+    metal_id int [ref: > metals.id]
+}
+
+Ref: orders.style_id > styles.id
+Ref: orders.size_id > sizes.id
+Ref: orders.metal_id > metals.id
